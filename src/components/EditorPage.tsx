@@ -89,10 +89,7 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
     setInGenerate(true);
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL
-      console.log('EditorPage toGenerate apiUrl:', apiUrl)
       const dataURL = stageRef.current.toDataURL({ pixelRatio: 1 });
-      console.log(dataURL);
       const res = await fetch(dataURL);
       const blob = await res.blob();
       const file = new File([blob], "edited_image.png", { type: "image/png" });
@@ -114,7 +111,6 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
         images: response.user.images,
         reports: response.user.reports
       };
-      console.log(updatedUser)
       setLogUser(updatedUser);
       localStorage.setItem("logUser", JSON.stringify(updatedUser));
       setUploadedImagePath(null);

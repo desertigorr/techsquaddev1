@@ -13,7 +13,6 @@ export type RectShape = {
 export const fetchDefects = async () => {
   try {
     const apiUrl = import.meta.env.VITE_API_URL
-    console.log('defects.ts fetchDefects apiUrl:', apiUrl)
     const response = await fetch(`${apiUrl}/defects`);
     const data = await response.json();
     const boxes = data.user.defects.instances.pred_boxes;
@@ -35,7 +34,6 @@ export const fetchDefects = async () => {
 export const replaceImage = async (file: File, userId: number, filename: string, rects: RectShape[]) => {
   try {
     const apiUrl = import.meta.env.VITE_API_URL
-    console.log('defects.ts replaceImage apiUrl:', apiUrl)
     const formData = new FormData();
     formData.append("file", file);
     formData.append("userId", userId.toString());
