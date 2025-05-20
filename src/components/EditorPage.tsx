@@ -98,6 +98,11 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
       const file = new File([blob], "edited_image.png", { type: "image/png" });
       const prevFilename = uploadedImagePath.split('/').pop() || "";
 
+      const data = await file.arrayBuffer();
+      if (data.byteLength < 1000) {
+        throw new Error("Файл пустой или повреждён");
+      }
+
       const response = await replaceImage(file, logUser.id, prevFilename, rects);
       if (!response || !response.user) {
         setInGenerate(false);
