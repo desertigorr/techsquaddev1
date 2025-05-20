@@ -22,7 +22,7 @@ type EditorProps = {
 
 const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUploadedImagePath, setLogUser }: EditorProps) => {
   const [selectedColor, setSelectedColor] = useState(colorArray[0]);
-  const [image] = useImage(uploadedImagePath);
+  const [image] = useImage(uploadedImagePath, "anonymous");
   const [imageSize, setImageSize] = useState({ width: 1000, height: 1000 });
 
   const [rects, setRects] = useState<RectShape[]>([]);
