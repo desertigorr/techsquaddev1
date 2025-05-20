@@ -9,7 +9,7 @@ type AccountPageProps = {
   nullUser: UserType,
   fetchUsers: () => void
 }
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, nullUser, fetchUsers}) => {
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, n
   
   const handleDelete = async () => {
     try {
-      const response = await fetch(`${}/users/${logUser.id}`, {
+      const response = await fetch(`${apiUrl}/users/${logUser.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
