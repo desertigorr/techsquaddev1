@@ -55,7 +55,7 @@ const ImagePage: FC<ImagePageProps> = ({logUser, setLogUser, fetchUsers}) => {
   
       if (response.ok) {
         const data = await response.json();
-        const newImagePath = `/images/${data.filename}`;
+        const newImagePath = `${apiUrl}/images/${data.filename}`;
         setUploadedImagePath(newImagePath);
         handleUploadedImagePath(newImagePath);
 
