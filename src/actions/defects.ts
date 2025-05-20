@@ -12,7 +12,8 @@ export type RectShape = {
 
 export const fetchDefects = async () => {
   try {
-    const response = await fetch("/defects");
+    const apiUrl = import.meta.env.VITE_API_URL
+    const response = await fetch(`${apiUrl}/defects`);
     const data = await response.json();
     const boxes = data.user.defects.instances.pred_boxes;
     const classes = data.user.defects.instances.pred_classes;
@@ -32,6 +33,7 @@ export const fetchDefects = async () => {
 
 export const replaceImage = async (file: File, userId: number, filename: string, rects: RectShape[]) => {
   try {
+    const apiUrl = import.meta.env.VITE_API_URL
     const formData = new FormData();
     formData.append("file", file);
     formData.append("userId", userId.toString());
@@ -47,7 +49,7 @@ export const replaceImage = async (file: File, userId: number, filename: string,
 
     formData.append("rects", JSON.stringify(transformedRects));
 
-    const response = await fetch("/replace-image", {
+    const response = await fetch(`${apiUrl}/replace-image`, {
       method: "POST",
       body: formData,
     });

@@ -35,7 +35,8 @@ const RegisterForm: FC<RegisterFormProps> = ({ fetchUsers, setIsRegistered, user
     };
     
     try {
-      const response = await fetch("/users", {
+      const apiUrl = import.meta.env.VITE_API_URL
+      const response = await fetch(`${apiUrl}/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),

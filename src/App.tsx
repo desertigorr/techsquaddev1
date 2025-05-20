@@ -35,10 +35,10 @@ const App = () => {
   const [logUser, setLogUser] = useState<UserType>(savedUser ? JSON.parse(savedUser) : nullUser);
   const [isEntered, setIsEntered] = useState(localStorage.getItem('isEntered') === 'true');
   const [isRegistered, setIsRegistered] = useState(true);
-
+  const apiUrl = import.meta.env.VITE_API_URL
   const fetchUsers = async () => {
     try {
-      const response = await fetch("/users/");
+      const response = await fetch(`${apiUrl}/users/`);
       const data: UserType[] = await response.json();
       setUsers(data);
     } catch {
