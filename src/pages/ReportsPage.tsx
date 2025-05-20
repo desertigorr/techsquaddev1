@@ -20,7 +20,7 @@ const ReportsPage: FC<ReportsPageProps> = ({ logUser }) => {
             <div key={idx}>
               <a className="reports-file"
                 href={`${apiUrl}/reports/${filename}`}
-                download
+                target="_blank"
               >
                 📄 {filename}
               </a>
