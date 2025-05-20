@@ -18,6 +18,7 @@ const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, n
     setLogUser(nullUser);
     localStorage.setItem('isEntered', 'false');
     localStorage.removeItem('logUser');
+    localStorage.removeItem('uploadedImagePath');
     fetchUsers()
     navigate('/');
   };
@@ -36,6 +37,7 @@ const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, n
         setIsEntered(false);
         localStorage.setItem("isEntered", "false");
         localStorage.removeItem("logUser");
+        localStorage.removeItem("uploadedImagePath");
         navigate('/');
         fetchUsers(); 
       } else {

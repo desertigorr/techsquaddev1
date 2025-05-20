@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useState, type FC, useEffect } from "react";
 import type { UserType } from "../App";
 import EditorPage from "../components/EditorPage";
 
@@ -17,6 +17,13 @@ const ImagePage: FC<ImagePageProps> = ({logUser, setLogUser, fetchUsers}) => {
   const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(() => {
     return localStorage.getItem("uploadedImagePath");
   });
+
+  useEffect(() => {
+    if (!logUser.images || logUser.images.length === 0) {
+      setUploadedImagePath(null);
+      localStorage.removeItem("uploadedImagePath");
+    }
+  }, [logUser]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];

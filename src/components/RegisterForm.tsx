@@ -45,6 +45,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ fetchUsers, setIsRegistered, user
       if (!response.ok) throw new Error("Ошибка при регистрации");
       fetchUsers();
       setIsRegistered(true);
+      localStorage.removeItem("uploadedImagePath");
       } catch (err) {
         console.error(err);
         setRegisterError("Ошибка при регистрации");
