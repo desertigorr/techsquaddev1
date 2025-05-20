@@ -22,10 +22,10 @@ const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, n
     fetchUsers()
     navigate('/');
   };
-
+  
   const handleDelete = async () => {
     try {
-      const response = await fetch(`/users/${logUser.id}`, {
+      const response = await fetch(`${}/users/${logUser.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
