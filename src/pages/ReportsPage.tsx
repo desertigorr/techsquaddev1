@@ -1,10 +1,13 @@
-import type { FC } from "react";
+import { useState, type FC } from "react";
+import type { UserType } from "../App";
 
 type ReportsPageProps = {
   logUser: {
     reports: string[];
   };
 };
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const ReportsPage: FC<ReportsPageProps> = ({ logUser }) => {
   return (
@@ -17,7 +20,7 @@ const ReportsPage: FC<ReportsPageProps> = ({ logUser }) => {
           (logUser.reports || []).slice().reverse().map((filename, idx) => (
             <div key={idx}>
               <a className="reports-file"
-                href={`/reports/${filename}`}
+                href={`${apiUrl}/reports/${filename}`}
                 download
               >
                 📄 {filename}
