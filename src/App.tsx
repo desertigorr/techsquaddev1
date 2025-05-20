@@ -36,6 +36,7 @@ const App = () => {
   const [isEntered, setIsEntered] = useState(localStorage.getItem('isEntered') === 'true');
   const [isRegistered, setIsRegistered] = useState(true);
   const apiUrl = import.meta.env.VITE_API_URL
+  console.log('App apiUrl:', apiUrl)
   const fetchUsers = async () => {
     try {
       const response = await fetch(`${apiUrl}/users/`);
