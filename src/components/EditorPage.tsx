@@ -96,6 +96,11 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
       const prevFilename = uploadedImagePath.replace("/images/", "");
 
       const response = await replaceImage(file, logUser.id, prevFilename, rects);
+      if (!response || !response.user) {
+        setInGenerate(false);
+        alert("Ошибка при формировании отчета. Попробуйте еще раз.");
+        return;
+      }
       const updatedUser = {
         ...logUser,
         images: response.user.images,
@@ -110,6 +115,7 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
 
     } catch (err) {
       console.log(err)
+      setInGenerate(false)
     }
   };
 
