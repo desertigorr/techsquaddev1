@@ -92,6 +92,7 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
       const apiUrl = import.meta.env.VITE_API_URL
       console.log('EditorPage toGenerate apiUrl:', apiUrl)
       const dataURL = stageRef.current.toDataURL({ pixelRatio: 1 });
+      console.log(dataURL);
       const res = await fetch(dataURL);
       const blob = await res.blob();
       const file = new File([blob], "edited_image.png", { type: "image/png" });
