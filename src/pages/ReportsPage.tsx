@@ -1,5 +1,4 @@
-import { useState, type FC } from "react";
-import type { UserType } from "../App";
+import { type FC } from "react";
 
 type ReportsPageProps = {
   logUser: {
