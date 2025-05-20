@@ -130,7 +130,7 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
           </div>
 
           <img className="process-img" 
-            src="src/images/loading.png"
+            src="/images/loading.png"
           />
         </div>
       </div>
@@ -236,7 +236,7 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
         </div>
 
         <img className="generate-btn-img" 
-          src="src/images/page.png" 
+          src="/images/page.png" 
         />      
         </div>
       </div>        

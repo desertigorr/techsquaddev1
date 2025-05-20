@@ -56,7 +56,7 @@ const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, n
 
         <div className="profile">
           <img className="profile-img" 
-            src="src/images/big-avatar.png"
+            src="/images/big-avatar.png"
           />
 
           <div className="profile-info">

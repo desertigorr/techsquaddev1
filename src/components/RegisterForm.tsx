@@ -60,7 +60,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ fetchUsers, setIsRegistered, user
           RADEX
         </div>
         <img className="gazprom-logo" 
-          src="src/images/gazprom-logo.png" 
+          src="/images/gazprom-logo.png" 
         />
       </div>
 
