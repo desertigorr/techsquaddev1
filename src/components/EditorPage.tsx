@@ -89,11 +89,13 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
     setInGenerate(true);
 
     try {
+      const apiUrl = import.meta.env.VITE_API_URL
+      console.log('EditorPage toGenerate apiUrl:', apiUrl)
       const dataURL = stageRef.current.toDataURL({ pixelRatio: 1 });
       const res = await fetch(dataURL);
       const blob = await res.blob();
       const file = new File([blob], "edited_image.png", { type: "image/png" });
-      const prevFilename = uploadedImagePath.replace("/images/", "");
+      const prevFilename = uploadedImagePath.split('/').pop() || "";
 
       const response = await replaceImage(file, logUser.id, prevFilename, rects);
       if (!response || !response.user) {
