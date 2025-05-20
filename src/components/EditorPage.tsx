@@ -180,7 +180,7 @@ const EditorPage = ({ uploadedImagePath, logUser, setUploadedImagePath, handleUp
           >
             <Layer>
               {image && <KonvaImage image={image} />}
-              {rects.map((r, i) => (
+              {(rects || []).map((r, i) => (
                 <Rect
                   key={i}
                   x={r.x}

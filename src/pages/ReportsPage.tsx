@@ -13,8 +13,8 @@ const ReportsPage: FC<ReportsPageProps> = ({ logUser }) => {
         Ваши отчеты
       </div>
       <div className="reports-area">
-        {logUser.reports.length > 0 ? (
-          logUser.reports.slice().reverse().map((filename, idx) => (
+        {logUser.reports && logUser.reports.length > 0 ? (
+          (logUser.reports || []).slice().reverse().map((filename, idx) => (
             <div key={idx}>
               <a className="reports-file"
                 href={`/reports/${filename}`}
